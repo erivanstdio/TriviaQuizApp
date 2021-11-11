@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   questionText: {
+    textAlign: 'center',
     color: '#fff',
     fontSize: 18,
   }

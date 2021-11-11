@@ -10,7 +10,7 @@ const Options = () => {
   return (
     <View style={styles.container}>
         <TouchableOpacity style={styles.question}>
-          <Text style={styles.questionText}>Opção 1: lorem ipsum inventei agora</Text>
+          <Text style={styles.questionText}>lorem ipsum inventei agora</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.question}>
           <Text style={styles.questionText}>Opção 1: lorem ipsum inventei agora</Text>
