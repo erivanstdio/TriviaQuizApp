@@ -8,7 +8,7 @@ import styles from './styles';
 const Quiz = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar backgroundColor={"#330022"}/>
+      <StatusBar backgroundColor={"#660022"}/>
       <Text style={styles.text}>Gênero: seila ne porra</Text>
       <Question/>
       <Options/>

@@ -1,18 +1,22 @@
 import { StyleSheet } from "react-native";
+import { COLORS } from "../../global/styles/colors";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#330033',
+    backgroundColor: COLORS.box,
     marginVertical: 40,
     padding: 20,
     borderRadius: 20,
   },
   index: {
-    color: '#fff'
+    color: COLORS.text,
+    fontFamily: 'MochiyPopPOne-Regular',
+    
   },
   question: {
-    color: '#fff',
-    fontSize: 20,
+    fontFamily: 'MochiyPopPOne-Regular',
+    color: COLORS.text,
+    fontSize: 18,
   }
 });
 

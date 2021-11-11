@@ -1,10 +1,10 @@
 import React from 'react';
-import Quiz from './src/screens/Quiz';
-
+import Routes from './src/routes';
+import Home from './src/screens/Home';
 const App = () => {
   
   return (
-    <Quiz/>
+    <Home/>
   );
 };
 

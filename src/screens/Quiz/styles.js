@@ -1,15 +1,17 @@
 import { StyleSheet } from "react-native"; 
+import { COLORS } from "../../global/styles/colors";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#110011'
+    backgroundColor: COLORS.backgroundColor,
   },
   text: {
-    color: '#ccc',
-    fontSize: 20,
+    color: COLORS.text,
+    fontFamily: 'AmaticSC-Bold',
+    fontSize: 30,
   }
 })
 
