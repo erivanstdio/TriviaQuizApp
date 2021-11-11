@@ -9,7 +9,7 @@ const Quiz = () => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={"#330022"}/>
-      <Text style={styles.text}>Texto texte</Text>
+      <Text style={styles.text}>Gênero: seila ne porra</Text>
       <Question/>
       <Options/>
 

@@ -6,7 +6,8 @@ import styles from './styles';
 const Question = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.question}>Pergunta lorem ipsum inventei agora</Text>
+      <Text style={styles.index}>1/2</Text>
+      <Text style={styles.question}>Pergunta lorem ipsum inventei agora: Quantos anos tinha napoleão quando sentou na pica?</Text>
     </View>
   );
 }
