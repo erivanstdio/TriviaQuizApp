@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   optionText: {
-    fontFamily: 'MochiyPopPOne-Regular',
+    fontFamily: 'Righteous-Regular',
     textAlign: 'center',
     color: COLORS.text,
     fontSize: 16,

@@ -10,11 +10,11 @@ const styles = StyleSheet.create({
   },
   index: {
     color: COLORS.text,
-    fontFamily: 'MochiyPopPOne-Regular',
+    fontFamily: 'Righteous-Regular',
     
   },
   question: {
-    fontFamily: 'MochiyPopPOne-Regular',
+    fontFamily: 'Righteous-Regular',
     color: COLORS.text,
     fontSize: 18,
   }

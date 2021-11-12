@@ -6,8 +6,13 @@ import Button from '../../components/Button';
 
 import styles from './styles';
 
-const Home = () => {
-  return(
+const Home = ({navigation}) => {
+  
+  function handleNavigate() {
+    navigation.navigate('Selection')
+  }
+
+  return( 
     <View style={styles.container}>
       <StatusBar backgroundColor={"#550022"}/>
       <View style={styles.image}>
@@ -15,7 +20,7 @@ const Home = () => {
       </View>
       <Text style={styles.welcome}>TRIVIA QUIZ</Text>
       
-      <Button buttonStyle={styles.buttonStart} title="Começar"/>
+      <Button onPress={handleNavigate} buttonStyle={styles.buttonStart} title="Começar"/>
       
     </View>
   );
