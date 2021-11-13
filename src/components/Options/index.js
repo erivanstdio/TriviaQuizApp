@@ -31,6 +31,7 @@ const Options = (data) => {
 
   return (
     <View style={styles.container}>
+      
         <TouchableOpacity style={styles.option}>
           <Text style={styles.optionText}>lorem ipsum blablabla</Text>
         </TouchableOpacity>

@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     fontFamily: 'AmaticSC-Bold',
     color: COLORS.text,
     fontSize: 40,
-    paddingHorizontal: 50,
+    paddingHorizontal: 80,
   },
   counterBox: {
     marginTop: 20,

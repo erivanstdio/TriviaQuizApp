@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { StatusBar, SafeAreaView, View, Text } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { StatusBar, SafeAreaView, Text } from 'react-native';
 import api from '../../services/api';
 
 import Options from '../../components/Options';
@@ -15,33 +15,56 @@ const Quiz = ({ route }) => {
 
   // may be useful later
   const [loading, setLoading] = useState(false);
-  const [questions, setQuestions] = useState([]);
 
-  async function loadApi() {
+  const [category, setCategory] = useState('');
+  const [question, setQuestion] = useState('');
 
-    const data = await api.get('',{ params: { amount: numberOfQuestions}})
-      .then(response => {
+  const [correctAnswer, setCorrectAnswer] = useState('');
+  const [incorrectAnswer1, setIncorrectAnswer1] = useState('');
+  const [incorrectAnswer2, setIncorrectAnswer2] = useState('');
+  const [incorrectAnswer3, setIncorrectAnswer3] = useState('');
+  
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+
+  useEffect(() => {
+    
+    async function loadApi() {
+
+      const data = await api.get('',{ params: { amount: numberOfQuestions}})
+        .then(response => {
+          const category = response.data.results[currentQuestion].category
+          const question = response.data.results[currentQuestion].question
+
+          const correctAnswer = response.data.results[currentQuestion].correct_answer
+
+          const incorrectAnswer1 = response.data.results[currentQuestion].incorrect_answers[0]
+          const incorrectAnswer2 = response.data.results[currentQuestion].incorrect_answers[1]
+          const incorrectAnswer3 = response.data.results[currentQuestion].incorrect_answers[2]
+
+          setCategory(category)
+          setQuestion(question)
+          setCorrectAnswer(correctAnswer)
+          setIncorrectAnswer1(incorrectAnswer1)
+          setIncorrectAnswer2(incorrectAnswer2)
+          setIncorrectAnswer3(incorrectAnswer3)
+          
+      });
+  
+    }
       
-      console.log(response.data.results[0].category)
-      
-    });
+    loadApi();
 
-  }
+  }, [])
 
-  loadApi();
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={"#660022"}/>
-      <Text style={styles.text}>Gênero: seila ne porra</Text>
-      <Question/>
-      <Options/>
-
-      {/* Question */}
-      {/* Options */}
-      {/* Next Button */}
+      <Text style={styles.text}>Category - {category}</Text>
       
-      {/* Background Image */}
+      <Question question={question}/>
+      <Options/>
+      
     </SafeAreaView>
   );
 }

@@ -20,7 +20,7 @@ const Home = ({navigation}) => {
       </View>
       <Text style={styles.welcome}>TRIVIA QUIZ</Text>
       
-      <Button onPress={handleNavigate} buttonStyle={styles.buttonStart} title="Começar"/>
+      <Button onPress={handleNavigate} buttonStyle={styles.buttonStart} title="Start"/>
       
     </View>
   );

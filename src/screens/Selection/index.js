@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import Button from '../../components/Button';
-import api from '../../services/api';
 
 import styles from './styles';
 
@@ -41,7 +40,7 @@ const Selection = ({navigation}) => {
       
       <View style={styles.selection}>
   
-        <Text style={styles.selectionText}>Selecione a quantidade de perguntas: </Text>
+        <Text style={styles.selectionText}>Select the amount of questions: </Text>
         
         {/* Contador */}
         <View style={styles.counterBox}>
@@ -67,7 +66,7 @@ const Selection = ({navigation}) => {
       </View>
 
       <View style={styles.buttons}>
-      <Button buttonStyle={{paddingHorizontal: 48, marginHorizontal: 10}} title="Voltar" onPress={handleNavigateHome}/>
+      <Button buttonStyle={{paddingHorizontal: 55, marginHorizontal: 10}} title="Back" onPress={handleNavigateHome}/>
       <Button disabled={disabled} buttonStyle={{marginHorizontal: 10}} title="Quiz me!" onPress={handleNavigateQuiz} />
       </View>
     </View>

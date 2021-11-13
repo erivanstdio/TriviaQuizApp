@@ -3,11 +3,11 @@ import { View, Text } from 'react-native';
 
 import styles from './styles';
 
-const Question = () => {
+const Question = ({question}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.index}>1/2</Text>
-      <Text style={styles.question}>Pergunta lorem ipsum inventei agora: Quantos anos tinha napoleão quando sentou na pica?</Text>
+      <Text style={styles.question}>{question}</Text>
     </View>
   );
 }
