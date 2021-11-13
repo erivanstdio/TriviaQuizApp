@@ -5,9 +5,7 @@ import styles from './styles';
 
 
 
-const Options = (data) => {
-
-  const allQuestions = data;
+const Option = ({key, data}) => {
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [currentOptionSelected, setCurrentOptionSelected] = useState(null);
@@ -33,21 +31,11 @@ const Options = (data) => {
     <View style={styles.container}>
       
         <TouchableOpacity style={styles.option}>
-          <Text style={styles.optionText}>lorem ipsum blablabla</Text>
+          <Text style={styles.optionText}>{data}</Text>
         </TouchableOpacity>
 
-
-        <TouchableOpacity style={styles.option}>
-          <Text style={styles.optionText}>lorem ipsum blablablablablablablaallablalbalbla</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.option}>
-          <Text style={styles.optionText}>Opção 3: lorem ipsum blablabla</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.option}>
-          <Text style={styles.optionText}>lorem ipsum blablabla bablablasblabslablasblasbasblasbaslbsalb</Text>
-        </TouchableOpacity>
     </View>
   );
 }
 
-export default Options;
+export default Option;

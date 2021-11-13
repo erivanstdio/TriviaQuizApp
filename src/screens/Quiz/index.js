@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { StatusBar, SafeAreaView, Text } from 'react-native';
 import api from '../../services/api';
 
-import Options from '../../components/Options';
+import Option from '../../components/Option';
 import Question from '../../components/Question';
 
 import styles from './styles';
@@ -19,10 +19,9 @@ const Quiz = ({ route }) => {
   const [category, setCategory] = useState('');
   const [question, setQuestion] = useState('');
 
-  const [correctAnswer, setCorrectAnswer] = useState('');
-  const [incorrectAnswer1, setIncorrectAnswer1] = useState('');
-  const [incorrectAnswer2, setIncorrectAnswer2] = useState('');
-  const [incorrectAnswer3, setIncorrectAnswer3] = useState('');
+  
+  const [answer, setAnswer] = useState([]);
+  const [incorrectAnswer, setIncorrectAnswer] = useState([]);
   
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
@@ -30,23 +29,22 @@ const Quiz = ({ route }) => {
     
     async function loadApi() {
 
-      const data = await api.get('',{ params: { amount: numberOfQuestions}})
+      const data = await api.get('',{ params: { amount: numberOfQuestions}, encoding: 'utf-8'})
         .then(response => {
           const category = response.data.results[currentQuestion].category
           const question = response.data.results[currentQuestion].question
 
           const correctAnswer = response.data.results[currentQuestion].correct_answer
 
-          const incorrectAnswer1 = response.data.results[currentQuestion].incorrect_answers[0]
-          const incorrectAnswer2 = response.data.results[currentQuestion].incorrect_answers[1]
-          const incorrectAnswer3 = response.data.results[currentQuestion].incorrect_answers[2]
+          const incorrectAnswer = response.data.results[currentQuestion].incorrect_answers
+          incorrectAnswer.push(correctAnswer)
 
           setCategory(category)
           setQuestion(question)
-          setCorrectAnswer(correctAnswer)
-          setIncorrectAnswer1(incorrectAnswer1)
-          setIncorrectAnswer2(incorrectAnswer2)
-          setIncorrectAnswer3(incorrectAnswer3)
+          setAnswer(incorrectAnswer)
+
+          console.log(correctAnswer)
+          console.log(incorrectAnswer)
           
       });
   
@@ -63,7 +61,7 @@ const Quiz = ({ route }) => {
       <Text style={styles.text}>Category - {category}</Text>
       
       <Question question={question}/>
-      <Options/>
+      {answer.map((item, index) => <Option key={index} data={item} />)}
       
     </SafeAreaView>
   );
