@@ -14,19 +14,26 @@ const styles = StyleSheet.create({
   },
   selectionText: {
     fontFamily: 'AmaticSC-Bold',
-    color: COLORS.text2,
+    color: COLORS.text,
     fontSize: 40,
     paddingHorizontal: 50,
   },
   counterBox: {
+    marginTop: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   arrow: {
-    fontFamily: 'AmaticSC-Bold',
-    color: COLORS.text2,
-    fontSize: 40,
-    marginHorizontal: 20
+    backgroundColor: COLORS.box,
+    borderRadius: 40,
+    paddingHorizontal: 20,
+    paddingTop: 6,
+    marginHorizontal: 20,
+  },
+  arrowText: {
+    fontFamily: 'MochiyPopPOne-Regular',
+    color: COLORS.text,
+    fontSize: 30,
   },
   counter: {
     fontFamily: 'AmaticSC-Bold',
