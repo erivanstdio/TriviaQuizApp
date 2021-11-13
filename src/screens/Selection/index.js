@@ -9,12 +9,6 @@ const Selection = ({navigation}) => {
 
 
   const [numberOfQuestions, setNumberOfQuestions] = useState(0)
-
-  
-  const [questions, setQuestions] = useState([]);
-
-  // may be useful later
-  const [loading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(false);
 
 
@@ -22,35 +16,21 @@ const Selection = ({navigation}) => {
     numberOfQuestions == 0 ? setDisabled(true) : setDisabled(false);
   }, [numberOfQuestions])
 
-  async function loadApi() {
-
-    const data = await api.get('',{ params: { amount: numberOfQuestions}})
-      .then(response => {
-      console.log(response.data.results);
-    });
-
-    navigation.navigate('Quiz',{data: data});  
-
-  }
 
   function handleNavigateHome() {
     navigation.navigate('Home');  
   }
 
   function handleNavigateQuiz() {
-    loadApi();
+    navigation.navigate('Quiz',{numberOfQuestions: numberOfQuestions});
   }
 
   function increase() {
-    
-    numberOfQuestions == 0 ? setDisabled(true) : setDisabled(false);
     numberOfQuestions < 50 ?
     setNumberOfQuestions(numberOfQuestions+1)
     : numberOfQuestions
   }
   function decrease() {
-    
-    numberOfQuestions == 0 ? setDisabled(true) : setDisabled(false);
     numberOfQuestions > 0 ?
     setNumberOfQuestions(numberOfQuestions-1)
     : numberOfQuestions
