@@ -5,7 +5,7 @@ import styles from './styles';
 
 
 
-const Option = ({key, data}) => {
+const Option = ({onPress, index, data}) => {
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [currentOptionSelected, setCurrentOptionSelected] = useState(null);
@@ -24,13 +24,12 @@ const Option = ({key, data}) => {
     if(selectOption==correctOption){
       setScore(score+1);
     }
-
   }
 
   return (
-    <View style={styles.container}>
+    <View key={index} style={styles.container}>
       
-        <TouchableOpacity style={styles.option}>
+        <TouchableOpacity onpress={() => onPress} style={styles.option}>
           <Text style={styles.optionText}>{data}</Text>
         </TouchableOpacity>
 

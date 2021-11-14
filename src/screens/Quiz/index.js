@@ -10,8 +10,7 @@ import styles from './styles';
 const Quiz = ({ route }) => {
 
   const { numberOfQuestions } = route.params
-  console.log(numberOfQuestions)
-
+  
 
   // may be useful later
   const [loading, setLoading] = useState(false);
@@ -22,6 +21,7 @@ const Quiz = ({ route }) => {
   
   const [answer, setAnswer] = useState([]);
   const [incorrectAnswer, setIncorrectAnswer] = useState([]);
+  const [correctAnswer, setCorrectAnswer] = useState([]);
   
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
@@ -29,7 +29,7 @@ const Quiz = ({ route }) => {
     
     async function loadApi() {
 
-      const data = await api.get('',{ params: { amount: numberOfQuestions}, encoding: 'utf-8'})
+      const data = await api.get('',{ params: { amount: numberOfQuestions}})
         .then(response => {
           const category = response.data.results[currentQuestion].category
           const question = response.data.results[currentQuestion].question
@@ -42,9 +42,7 @@ const Quiz = ({ route }) => {
           setCategory(category)
           setQuestion(question)
           setAnswer(incorrectAnswer)
-
-          console.log(correctAnswer)
-          console.log(incorrectAnswer)
+          setCorrectAnswer(correctAnswer)
           
       });
   
@@ -54,6 +52,10 @@ const Quiz = ({ route }) => {
 
   }, [])
 
+  function handleSelectedOption(answer){
+    answer == correctAnswer ? console.log('correto') : console.log('incorreto')
+  }
+
 
   return (
     <SafeAreaView style={styles.container}>
@@ -61,7 +63,7 @@ const Quiz = ({ route }) => {
       <Text style={styles.text}>Category - {category}</Text>
       
       <Question question={question}/>
-      {answer.map((item, index) => <Option key={index} data={item} />)}
+      {answer.map((item) => <Option onPress={() =>  handleSelectedOption(JSON.parse(item))} data={item} />)}
       
     </SafeAreaView>
   );

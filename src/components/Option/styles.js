@@ -1,5 +1,7 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { COLORS } from "../../global/styles/colors";
+  
+const WIDTH = Dimensions.get('screen').width
 
 const styles = StyleSheet.create({
   container:{
@@ -8,7 +10,7 @@ const styles = StyleSheet.create({
   },
   option: {
     marginTop: 20,
-    paddingHorizontal: 20,
+    width: WIDTH - 60,
     paddingVertical: 16,
     backgroundColor: COLORS.button,
     borderRadius: 20,
