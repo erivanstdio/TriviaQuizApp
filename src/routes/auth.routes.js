@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from '../screens/Home';
 import Selection from '../screens/Selection';
 import Quiz from '../screens/Quiz';
+import Congratulations from '../screens/Congratulations';
 
 
 // caso não tivesse sido desestruturado, a forma de escrita seria por exemplo: <Nome_da_variavel.Navigator>.
@@ -32,6 +33,10 @@ const AuthRoutes = () => {
       <Screen 
         name="Quiz"
         component={Quiz}
+      />
+      <Screen 
+        name="Congratulations"
+        component={Congratulations}
       />
     </Navigator>
   );

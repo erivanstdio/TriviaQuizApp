@@ -4,10 +4,6 @@ import { COLORS } from "../../global/styles/colors";
 const WIDTH = Dimensions.get('screen').width
 
 const styles = StyleSheet.create({
-  container:{
-    paddingHorizontal: 25,
-    justifyContent: 'space-around',
-  },
   option: {
     marginTop: 20,
     width: WIDTH - 60,

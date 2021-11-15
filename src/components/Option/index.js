@@ -5,7 +5,7 @@ import styles from './styles';
 
 
 
-const Option = ({onPress, index, data}) => {
+const Option = ({onPress, data}) => {
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [currentOptionSelected, setCurrentOptionSelected] = useState(null);
@@ -27,13 +27,9 @@ const Option = ({onPress, index, data}) => {
   }
 
   return (
-    <View key={index} style={styles.container}>
-      
-        <TouchableOpacity onpress={() => onPress} style={styles.option}>
-          <Text style={styles.optionText}>{data}</Text>
-        </TouchableOpacity>
-
-    </View>
+    <TouchableOpacity onPress={onPress} style={styles.option}>
+      <Text style={styles.optionText}>{data}</Text>
+    </TouchableOpacity>
   );
 }
 

@@ -7,11 +7,10 @@ import Question from '../../components/Question';
 
 import styles from './styles';
 
-const Quiz = ({ route }) => {
+const Quiz = ({ navigation, route }) => {
 
   const { numberOfQuestions } = route.params
   
-
   // may be useful later
   const [loading, setLoading] = useState(false);
 
@@ -20,16 +19,20 @@ const Quiz = ({ route }) => {
 
   
   const [answer, setAnswer] = useState([]);
-  const [incorrectAnswer, setIncorrectAnswer] = useState([]);
+
   const [correctAnswer, setCorrectAnswer] = useState([]);
   
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [questionsThrough, setQuestionsThrough] = useState(0);
+
+  const [score,setScore] = useState(0);
+
 
   useEffect(() => {
     
     async function loadApi() {
-
-      const data = await api.get('',{ params: { amount: numberOfQuestions}})
+      console.log('eita entrou no loadApi')
+      const data = await api.get('',{ params: { amount: 1}})
         .then(response => {
           const category = response.data.results[currentQuestion].category
           const question = response.data.results[currentQuestion].question
@@ -43,27 +46,59 @@ const Quiz = ({ route }) => {
           setQuestion(question)
           setAnswer(incorrectAnswer)
           setCorrectAnswer(correctAnswer)
-          
       });
   
     }
       
     loadApi();
 
-  }, [])
+  }, [questionsThrough])
+
 
   function handleSelectedOption(answer){
-    answer == correctAnswer ? console.log('correto') : console.log('incorreto')
+    
+  console.log('$$$$$$$$$$$$$$$$ START $$$$$$$$$$$$$$$$')
+    console.log(`TOTAL DE PERGUNTAS: ${numberOfQuestions}`)
+    console.log(`TOTAL PERCORRIDO: ${questionsThrough}`)
+    
+    if (questionsThrough == numberOfQuestions - 1) {  
+
+
+      if (answer == String(correctAnswer)) {
+      setScore(score+1);
+      navigation.navigate('Congratulations',{score: score+1});
+      }
+      else {
+      navigation.navigate('Congratulations',{score: score});
+      }
+      console.log(`passou por todas as ${numberOfQuestions} perguntas`)
+      return;
+    }
+
+    else if(answer == String(correctAnswer)) {
+      console.log('correto')
+      setScore(score+1)
+      setQuestionsThrough(questionsThrough+1)
+    }
+    else if(answer !== String(correctAnswer)) {
+      (console.log('incorreto') &&
+      setQuestionsThrough(questionsThrough+1))
+    } else
+    console.log('cabou os ifelse') 
+    console.log(`passou por ${questionsThrough} perguntas`);
+  
+    setQuestionsThrough(questionsThrough+1)
   }
 
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={"#660022"}/>
-      <Text style={styles.text}>Category - {category}</Text>
+      <Text style={styles.scoreText}>Score: {score}</Text>
+      <Text style={styles.categoryText}>Category - {category}</Text>
       
-      <Question question={question}/>
-      {answer.map((item) => <Option onPress={() =>  handleSelectedOption(JSON.parse(item))} data={item} />)}
+      <Question currentIndex={questionsThrough} totalQuestions={numberOfQuestions} question={question}/>
+      {answer.map( (item, index) => <Option key={index} onPress={() => handleSelectedOption(item)} data={item} />)}
       
     </SafeAreaView>
   );

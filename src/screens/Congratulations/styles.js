@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native"; 
+import { StyleSheet } from "react-native";
 import { COLORS } from "../../global/styles/colors";
 
 const styles = StyleSheet.create({
@@ -6,20 +6,23 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: COLORS.backgroundColor,
+    backgroundColor: COLORS.backgroundColor2
   },
-  flatList: {
-  },
-  scoreText: {
+  textScore: {
     color: COLORS.text2,
     fontFamily: 'AmaticSC-Bold',
-    fontSize: 40,
+    fontSize: 50,
+    paddingHorizontal: 70,
+    marginBottom: 60
   },
-  categoryText: {
-    color: COLORS.text,
+  textTryAgain: {
+    color: COLORS.text2,
     fontFamily: 'AmaticSC-Bold',
     fontSize: 30,
-  }
+    marginBottom: 20,
+  },
+
+
 })
 
 export default styles;

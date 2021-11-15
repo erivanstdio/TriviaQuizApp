@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     marginVertical: 40,
     padding: 20,
     borderRadius: 20,
+    marginHorizontal: 30,
   },
   index: {
     color: COLORS.text,

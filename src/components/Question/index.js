@@ -3,10 +3,10 @@ import { View, Text } from 'react-native';
 
 import styles from './styles';
 
-const Question = ({question}) => {
+const Question = ({totalQuestions, currentIndex, question}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.index}>1/2</Text>
+      <Text style={styles.index}>{currentIndex+1}/{totalQuestions}</Text>
       <Text style={styles.question}>{question}</Text>
     </View>
   );
