@@ -12,7 +12,6 @@ const Congratulations = ({navigation, route}) => {
     navigation.navigate('Home');
   }
 
-  console.log(score)
   return(
     <View style={styles.container}>
       <StatusBar backgroundColor={"#660022"}/>

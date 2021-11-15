@@ -26,7 +26,24 @@ const Quiz = ({ navigation, route }) => {
   const [questionsThrough, setQuestionsThrough] = useState(0);
 
   const [score,setScore] = useState(0);
-
+  
+  // função para randomizar a ordem do array de perguntas:
+  function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+  
+    // While there remain elements to shuffle...
+    while (currentIndex != 0) {
+  
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
+  }
 
   useEffect(() => {
     
@@ -41,13 +58,15 @@ const Quiz = ({ navigation, route }) => {
 
           const incorrectAnswer = response.data.results[currentQuestion].incorrect_answers
           incorrectAnswer.push(correctAnswer)
+          
+          shuffle(incorrectAnswer)
 
           setCategory(category)
           setQuestion(question)
           setAnswer(incorrectAnswer)
           setCorrectAnswer(correctAnswer)
       });
-  
+       
     }
       
     loadApi();
@@ -57,9 +76,6 @@ const Quiz = ({ navigation, route }) => {
 
   function handleSelectedOption(answer){
     
-  console.log('$$$$$$$$$$$$$$$$ START $$$$$$$$$$$$$$$$')
-    console.log(`TOTAL DE PERGUNTAS: ${numberOfQuestions}`)
-    console.log(`TOTAL PERCORRIDO: ${questionsThrough}`)
     
     if (questionsThrough == numberOfQuestions - 1) {  
 
@@ -71,21 +87,16 @@ const Quiz = ({ navigation, route }) => {
       else {
       navigation.navigate('Congratulations',{score: score});
       }
-      console.log(`passou por todas as ${numberOfQuestions} perguntas`)
       return;
     }
 
     else if(answer == String(correctAnswer)) {
-      console.log('correto')
       setScore(score+1)
       setQuestionsThrough(questionsThrough+1)
     }
     else if(answer !== String(correctAnswer)) {
-      (console.log('incorreto') &&
-      setQuestionsThrough(questionsThrough+1))
+      setQuestionsThrough(questionsThrough+1)
     } else
-    console.log('cabou os ifelse') 
-    console.log(`passou por ${questionsThrough} perguntas`);
   
     setQuestionsThrough(questionsThrough+1)
   }

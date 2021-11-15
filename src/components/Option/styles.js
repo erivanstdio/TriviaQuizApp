@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderColor: COLORS.buttonBorder,
     borderWidth: 1,
+    paddingHorizontal: 20,
   },
   optionText: {
     fontFamily: 'Righteous-Regular',

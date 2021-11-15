@@ -25,9 +25,7 @@ const Selection = ({navigation}) => {
   }
 
   function increase() {
-    numberOfQuestions < 50 ?
     setNumberOfQuestions(numberOfQuestions+1)
-    : numberOfQuestions
   }
   function decrease() {
     numberOfQuestions > 0 ?

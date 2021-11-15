@@ -8,8 +8,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: COLORS.backgroundColor,
   },
-  flatList: {
-  },
   scoreText: {
     color: COLORS.text2,
     fontFamily: 'AmaticSC-Bold',
@@ -19,6 +17,7 @@ const styles = StyleSheet.create({
     color: COLORS.text,
     fontFamily: 'AmaticSC-Bold',
     fontSize: 30,
+    paddingHorizontal: 20,
   }
 })
 
