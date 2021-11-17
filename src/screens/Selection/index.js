@@ -21,7 +21,7 @@ const Selection = ({navigation}) => {
   }
 
   function handleNavigateQuiz() {
-    navigation.navigate('Quiz',{numberOfQuestions: numberOfQuestions});
+    navigation.navigate('Confirmation',{numberOfQuestions: numberOfQuestions});
   }
 
   function increase() {
@@ -65,7 +65,7 @@ const Selection = ({navigation}) => {
 
       <View style={styles.buttons}>
       <Button buttonStyle={{paddingHorizontal: 55, marginHorizontal: 10}} title="Back" onPress={handleNavigateHome}/>
-      <Button disabled={disabled} buttonStyle={{marginHorizontal: 10}} title="Quiz me!" onPress={handleNavigateQuiz} />
+      <Button disabled={disabled} buttonStyle={{paddingHorizontal: 55,marginHorizontal: 10}} title="Next" onPress={handleNavigateQuiz} />
       </View>
     </View>
   );

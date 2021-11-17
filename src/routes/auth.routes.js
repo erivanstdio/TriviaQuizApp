@@ -5,6 +5,7 @@ import Home from '../screens/Home';
 import Selection from '../screens/Selection';
 import Quiz from '../screens/Quiz';
 import Congratulations from '../screens/Congratulations';
+import Confirmation from '../screens/Confirmation';
 
 
 // caso não tivesse sido desestruturado, a forma de escrita seria por exemplo: <Nome_da_variavel.Navigator>.
@@ -29,6 +30,10 @@ const AuthRoutes = () => {
       <Screen 
         name="Selection"
         component={Selection}
+      />
+      <Screen 
+        name="Confirmation"
+        component={Confirmation}
       />
       <Screen 
         name="Quiz"
