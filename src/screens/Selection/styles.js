@@ -12,11 +12,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  selectionTextBox:{
+    justifyContent: 'space-between'
+  },
+  textBox:{
+    flexDirection: 'row',
+  },
   selectionText: {
     fontFamily: 'AmaticSC-Bold',
     color: COLORS.text,
     fontSize: 40,
-    paddingHorizontal: 80,
+  },
+  selectionTextHighLighted: {
+    fontFamily: 'AmaticSC-Bold',
+    color: COLORS.text2,
+    fontSize: 40,
+    marginLeft: 10,
   },
   counterBox: {
     marginTop: 20,

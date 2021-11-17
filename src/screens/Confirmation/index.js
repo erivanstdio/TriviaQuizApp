@@ -20,10 +20,10 @@ const Confirmation = ({navigation, route}) => {
   return(
     <View style={styles.container}>
       <Text style={styles.numberOfQuestions}>Total questions: {numberOfQuestions}</Text>
-      <Text style={styles.textContinue}>Continue?</Text>
+      <Text style={styles.textContinue}>Are you sure?</Text>
       <View style={styles.buttons}>
-      <Button buttonStyle={{paddingHorizontal: 55, marginHorizontal: 10}} title="Back" onPress={handleNavigateSelection}/>
-      <Button buttonStyle={{marginHorizontal: 10}} title="Quiz me!" onPress={handleNavigateQuiz} />
+      <Button buttonStyle={{paddingHorizontal: 45, marginHorizontal: 10}} title="Cancel" onPress={handleNavigateSelection}/>
+      <Button buttonStyle={{paddingHorizontal: 48, marginHorizontal: 10}} title="Start!" onPress={handleNavigateQuiz} />
       </View>
     </View>
   );

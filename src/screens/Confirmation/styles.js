@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.backgroundColor2
   },
   numberOfQuestions: {
-    color: COLORS.text2,
+    color: COLORS.text,
     fontFamily: 'AmaticSC-Bold',
     fontSize: 40,
   },

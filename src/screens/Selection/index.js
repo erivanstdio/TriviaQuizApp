@@ -37,9 +37,16 @@ const Selection = ({navigation}) => {
     <View style={styles.container}>
       
       <View style={styles.selection}>
-  
-        <Text style={styles.selectionText}>Select the amount of questions: </Text>
-        
+
+        <View style={styles.selectionTextBox}>
+          <Text style={styles.selectionText}>Select the amount</Text>
+          <View style={styles.textBox}>
+            <Text style={styles.selectionText}>of</Text>
+            <Text style={styles.selectionTextHighLighted}>questions</Text>
+            <Text style={styles.selectionText}>:</Text>
+          </View>
+        </View>
+
         {/* Contador */}
         <View style={styles.counterBox}>
           <TouchableOpacity 
